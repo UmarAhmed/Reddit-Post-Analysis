@@ -4,12 +4,12 @@ import datetime
 
 # N is the number of posts to be used
 N = 10000
-secret = "aD10UR8e93yBZuowCdzAnDRUSnI"
-username = "wellingtonne"
-clientID = "-pYQ1ZI_-pnu8g"
-reddit = praw.Reddit(user_agent='nani (by /u/wellingtonne)',
+secret = ""
+username = ""
+clientID = ""
+reddit = praw.Reddit(user_agent='nani (by /u/USERNAME)',
                      client_id=clientID, client_secret=secret,
-                     username=username, password='mango150')
+                     username=username, password='')
 
 subreddit = reddit.subreddit('askreddit')
 
