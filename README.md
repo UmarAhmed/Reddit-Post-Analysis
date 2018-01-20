@@ -1,7 +1,7 @@
 # Reddit-Post-Analysis
 **Libraries:** pandas, numpy, sklearn, praw 
 
-Data mined from reddit.com/askreddit by using praw. Obtained post titles, time of creation, and upvotes. This data is stored in scores.txt, times.txt, and titles.txt 
+Data mined from reddit.com/r/askreddit by using praw. Obtained post titles, time of creation, and upvotes. This data is stored in scores.txt, times.txt, and titles.txt 
 
 Common stop words were used to clean the data, these are found in stop_words.txt (obtained from https://github.com/Alir3z4/stop-words)
 
