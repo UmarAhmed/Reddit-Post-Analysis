@@ -4,8 +4,10 @@ from sklearn.feature_selection import SelectKBest
 from sklearn.feature_selection import chi2
 import numpy
 import re
+from sklearn.linear_model import Ridge
+import random
 
-# ----------- Cleaning, and creating dataframe --------------
+# ----------- Cleaning, and creating dataframe from text files --------------
 
 with open('titles.txt') as f:
     titles = f.read().splitlines()
@@ -98,3 +100,33 @@ features = numpy.hstack([non_nlp, meta, chi_matrix.todense()])
 
 
 # ------ It's prediction time friends ------------
+# We gonna use ridge regression instead of linear cuz it's cool
+
+
+train_rows = 8000
+test_rows = 1000
+# Set a seed to get the same "random" shuffle every time.
+random.seed(1)
+
+# Shuffle the indices for the matrix.
+indices = list(range(features.shape[0]))
+random.shuffle(indices)
+
+# Create train and test sets.
+train = features[indices[:train_rows], :]
+
+
+test = features[indices[:test_rows], :]
+
+train_upvotes = df["scores"].iloc[indices[:train_rows]]
+test_upvotes = df["scores"].iloc[indices[train_rows:]]
+train = numpy.nan_to_num(train)
+
+
+# Run the regression and generate predictions for the test set.
+reg = Ridge(alpha=1)
+reg.fit(train, train_upvotes)
+
+
+predictions = reg.predict(test)
+
