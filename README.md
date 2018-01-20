@@ -10,7 +10,7 @@ Used pandas, sklearn, and numpy to analyze the data and add more features from t
 - Created a column containing information about punctuation.
 - Column containing time information was created.
 
-Then the machine learning algorithm was traineed on some some of our data. The final result is a program that can predict the score of a post to some degree of certainty.
+The machine learning algorithm was trained on some some of our aforementioned data using ridge regression. The final result is a program that can predict the score of a post to some degree of certainty.
 
 
 
