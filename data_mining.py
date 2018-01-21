@@ -22,15 +22,15 @@ r = requests.get(
 data = [[i.title,i.score, datetime.datetime.fromtimestamp(i.created)] for i in subreddit.hot(limit=N)]
 
 
-with open('titles.txt', mode="w") as outfile:  # also, tried mode="rb"
+with open('titles.txt', mode="w") as outfile:  
     for i in data:
         outfile.write("%s\n" % i[0])
 
-with open('scores.txt', mode="w") as outfile:  # also, tried mode="rb"
+with open('scores.txt', mode="w") as outfile:  
     for i in data:
         outfile.write("%s\n" % i[1])
 
-with open('times.txt', mode="w") as outfile:  # also, tried mode="rb"
+with open('times.txt', mode="w") as outfile:  
     for i in data:
         outfile.write("%s\n" % i[2])
 
